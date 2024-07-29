@@ -1,0 +1,31 @@
+//Question:-
+//  Write a Java program that takes a list of strings as input and stores them in a TreeSet. Then, print the elements in alphabetical order.
+
+// input :banana apple orange apple banana
+// output :[apple, banana, orange]
+
+// import java.util.*;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Lap4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a list of strings: ");
+
+        String input = sc.nextLine();
+
+        // Split the input string into individual words
+        String[] words = input.split(" ");
+
+        // create a TreeSet to store the words
+        TreeSet<String> ts = new TreeSet<>();
+
+        // Add words to the TreeSet:- using forEach loop
+        for (String word : words) {
+            ts.add(word);
+
+        }
+        System.out.println(ts);
+    }
+}
