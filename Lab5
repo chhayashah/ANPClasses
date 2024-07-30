@@ -1,0 +1,33 @@
+// Joining a Single Thread:-Write a Java program that creates a thread
+//  that is doing sum of  numbers from 1 to 100, and then joins the 
+// thread to ensure that the main thread waits for the thread to finish 
+// execution before printing a message. and sum
+
+public class Sum extends Thread {
+    private int sum;
+
+    public void run() {
+        sum = 0;
+        for (int i = 1; i <= 100; i++) {
+            sum += i;
+        }
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Sum sm = new Sum();
+        sm.start();
+
+        try {
+            // join():wait for the thread to finsih execution
+            sm.join();
+        } catch (InterruptedException e) {
+            System.out.println("Thread was Interrupted.");
+        }
+
+        System.out.println("Sum from 1 to 100 is: " + sm.getSum());
+    }
+}
