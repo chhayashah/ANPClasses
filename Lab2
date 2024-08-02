@@ -1,0 +1,53 @@
+//InvalidEmailException.java
+public class InvalidEmailException extends Exception {
+    public InvalidEmailException(String message) {
+        super(message);
+    }
+}
+
+//User.java
+public class User {
+    private String name;
+    private String email;
+
+     public User(String name, String email) throws InvalidEmailException {
+        this.name = name;
+        
+        if (email == null || !email.contains("@")) {
+            throw new InvalidEmailException("Invalid email address: " + email);
+        }
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+     public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+    }
+}
+
+//Lab2.java
+public class Lab2 {
+    public static void main(String[] args) {
+        try {
+            // Attempt to create a User with an invalid email
+            User user1 = new User("chhaya", "gmail.com"); // This will throw InvalidEmailException
+        } catch (InvalidEmailException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // Create a User with a valid email
+            User user2 = new User("chhaya", "shah@gmail.com");
+            user2.displayInfo(); // Should display user information
+        } catch (InvalidEmailException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
