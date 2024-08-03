@@ -1,0 +1,88 @@
+
+//Device.java
+public class Device {
+    private String brand;
+    private String model;
+    private boolean isOn;
+
+    public Device(String brand, String model) {
+        this.brand = brand;
+        this.model = model;
+        this.isOn = false;
+    }
+
+    public void displayDeviceInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Power Status: " + (isOn ? "On" : "Off"));
+    }
+
+    public void powerOn() {
+        if (!isOn) {
+            isOn = true;
+            System.out.println("Device is now powered on.");
+        } else {
+            System.out.println("Device is already on.");
+        }
+    }
+
+    public void powerOff() {
+        if (isOn) {
+            isOn = false;
+            System.out.println("Device is now powered off.");
+        } else {
+            System.out.println("Device is already off.");
+        }
+    }
+}
+
+
+// Smartphone.java
+public class Smartphone extends Device {
+    private String operatingSystem;
+    private String cameraResolution;
+
+     public Smartphone(String brand, String model, String operatingSystem, String cameraResolution) {
+        super(brand, model);
+        this.operatingSystem = operatingSystem;
+        this.cameraResolution = cameraResolution;
+    }
+
+    public void displaySmartphoneInfo() {
+        displayDeviceInfo();
+        System.out.println("Operating System: " + operatingSystem);
+        System.out.println("Camera Resolution: " + cameraResolution);
+    }
+    public void takePhoto() {
+        if (isOn()) {
+            System.out.println("Taking a photo with " + cameraResolution + " camera.");
+        } else {
+            System.out.println("Cannot take photo. Device is off.");
+        }
+    }
+       private boolean isOn() {
+        // Reflection is used to access private attributes from the base class
+        try {
+            java.lang.reflect.Field field = Device.class.getDeclaredField("isOn");
+            field.setAccessible(true);
+            return (boolean) field.get(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}
+
+//Lab1.java
+public class Lab1 {
+    public static void main(String[] args) {
+        Smartphone myPhone = new Smartphone("Samsung", "Galaxy S21", "Android", "64 MP");
+
+        // Set attributes and demonstrate the usage of methods
+        myPhone.displaySmartphoneInfo();
+        myPhone.powerOn();
+        myPhone.takePhoto();
+        myPhone.powerOff();
+        myPhone.takePhoto(); // Should indicate the device is off
+    }
+}
