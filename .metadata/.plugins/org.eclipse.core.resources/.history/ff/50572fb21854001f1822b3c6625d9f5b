@@ -1,0 +1,11 @@
+package ANP8706;
+
+public class InseertDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("driver class loaded successfully");
+	}
+
+}

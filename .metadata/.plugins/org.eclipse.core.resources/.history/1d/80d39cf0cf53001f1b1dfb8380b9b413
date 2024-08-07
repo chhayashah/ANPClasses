@@ -1,0 +1,40 @@
+package anudip;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import anudip.ConnectionFactory;
+
+public class StudentCrudIOperations {
+	// crud  - create , read   , update  , delete 
+		public void addStudent(Student s ) {
+			
+			try {
+				Connection c  = ConnectionFactory.getConnectionFactory().getConnection() ;
+				PreparedStatement ppst  = c.prepareStatement("insert into student values(?, ? ,?)") ;
+				ppst.setInt(1, s.getStudent_id());
+				ppst.setString(2, s.getStudent_name()) ;
+				ppst.setInt(3,  s.getStudent_marks()) ;
+				
+				int ans  = ppst.executeUpdate() ; // one row mai data  insert huva hai 
+				
+				if (ans != 0) {
+					System.out.println("data got inserted succesfully ");
+				}else {
+					System.out.println("some thing went wrong");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		
+		
+		public static void main(String[] args) {
+			
+			StudentCrudIOperations s  = new StudentCrudIOperations ()  ;
+			
+			s.addStudent(new Student(343 , "Sherya", 750) );
+		}
+
+}

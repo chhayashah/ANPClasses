@@ -1,0 +1,35 @@
+package ANP8706;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class InseertDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc_db","root","root");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PreparedStatement ps =con.prepareStatement("insert into values('chhaya','chhaya@gmail.com)','chhaya123','male','jabalpur')");
+		int i=ps.executeUpdate();
+		
+		if(i>0) {
+			System.out.println("success");
+		}else
+		{
+			System.out.println("fail");
+		}
+	}
+
+}

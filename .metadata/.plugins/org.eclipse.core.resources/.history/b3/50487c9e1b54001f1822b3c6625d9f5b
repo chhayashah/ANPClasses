@@ -1,0 +1,93 @@
+//package ANP8706;
+//
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.PreparedStatement;
+//import java.sql.SQLException;
+//
+//public class InseertDemo {
+//
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		try {
+//			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc_db","root","root");
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		PreparedStatement ps =con.prepareStatement("insert into values('chhaya','chhaya@gmail.com)','chhaya123','male','jabalpur')");
+//		int i=ps.executeUpdate();
+//		
+//		if(i>0) {
+//			System.out.println("success");
+//		}else
+//		{
+//			System.out.println("fail");
+//		}
+//	}
+//
+//}
+
+package ANP8706;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class InseertDemo {
+
+    public static void main(String[] args) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            // Load the JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish a connection to the database
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc_db", "root", "root");
+
+            // Prepare the SQL statement
+            String sql = "INSERT INTO your_table_name (name, email, password, gender, city) VALUES (?, ?, ?, ?, ?)";
+            ps = con.prepareStatement(sql);
+
+            // Set the values for the prepared statement
+            ps.setString(1, "chhaya");
+            ps.setString(2, "chhaya@gmail.com");
+            ps.setString(3, "chhaya123");
+            ps.setString(4, "male");
+            ps.setString(5, "jabalpur");
+
+            // Execute the update
+            int i = ps.executeUpdate();
+
+            // Check if insertion was successful
+            if (i > 0) {
+                System.out.println("success");
+            } else {
+                System.out.println("fail");
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("MySQL JDBC Driver not found. Include it in your library path.");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Connection or SQL operation failed.");
+            e.printStackTrace();
+        } finally {
+            // Close resources
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
