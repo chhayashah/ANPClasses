@@ -1,0 +1,29 @@
+//.Write a program to prints 1 to 10 and sleep for 500ms using thread
+
+
+public class PrintNumbersWithSleep extends Thread {
+
+    // Override the run() method to define the behavior of the thread
+    @Override
+    public void run() {
+        // Print numbers from 1 to 10
+        for (int i = 1; i <= 10; i++) {
+            // Print the current number
+            System.out.println(i);
+            try {
+                // Sleep for 500 milliseconds between prints
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // Handle any interruptions during sleep
+                System.out.println("Thread was interrupted.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of PrintNumbersWithSleep thread
+        PrintNumbersWithSleep thread = new PrintNumbersWithSleep();
+        // Start the thread, which will call the run() method
+        thread.start();
+    }
+}
