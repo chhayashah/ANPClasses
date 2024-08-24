@@ -1,0 +1,129 @@
+package Pre_post;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		int a=5;
+//		System.out.println(a++ + ++a);
+		
+		
+//		int i=1;
+//		int j=i++;
+//		System.out.println(j);
+//		System.out.println(i);
+		
+//		int l=1;
+//		int k=++l;
+//		System.out.println(k);
+//		System.out.println(l);
+
+		
+//		int i=5;
+//		int x=++i + ++i;
+//		System.out.println(x);
+		
+		
+//		int a=11,b=22,c;
+//		c=a+b+ a++ + b++ + ++a + ++b;
+//		System.out.println("a=" + a);
+//		System.out.println("b=" + b);
+//		System.out.println("c=" + c);
+		
+//		int i=0;
+//		i= i++ - --i + ++i -i--;
+//		System.out.println(i);
+		
+		
+
+//				int i=19,j=29,k=39;
+//				int m=i-- - j-- - k--;
+//				System.out.println("i="+i);
+//
+//				System.out.println("j="+j);
+//
+//				System.out.println("k="+k);
+//				System.out.println("m="+m);
+		
+		
+//		int b;
+//		int a=5;
+//		b=a++;
+//		System.out.println("a="+a);
+//		System.out.println("b="+b);
+		
+//		int c;
+//		int d=5;
+//		c=++d;
+//		System.out.println("c="+c);
+//		System.out.println("d="+d);
+		
+		
+//		int a=10;
+//		System.out.println(a);
+//		System.out.println(a++);
+//		System.out.println(++a);
+//		
+//		System.out.println(a--);
+//		System.out.println(--a);
+
+		
+//		int a=1;
+//		System.out.println(a++);
+//		System.out.println(++a);
+		
+//		int a=1,b;
+//		b=++a;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+//		int a=1,b;
+//		b=a++;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+//		int a=1,b;
+//		b=a++ + a++;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+//		int a=1,b;
+//		b=++a + ++a;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+//		int a=1,b;
+//		b=++a + a++;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+		
+//		int a=1,b;
+//		b=++a + a++ + ++a;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+
+//		int a=1,b;
+//		b= a++ + ++a + ++a;
+//		System.out.println(a);
+//		System.out.println(b);
+
+		
+//		int a=1,b;
+//		b=++a + ++a + ++a;
+//		System.out.println(a);
+//		System.out.println(b);
+		
+//		int a=1,b;
+//		b=a++ + ++a + a++;
+//		System.out.println(a);
+//		System.out.println(b);
+
+		
+
+
+
+	}
+
+}
